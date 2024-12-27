@@ -1,0 +1,37 @@
+package com.base.service;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.base.model.PacienteModel;
+import com.base.repository.PacienteRepository;
+
+import lombok.RequiredArgsConstructor;
+
+@Service
+@RequiredArgsConstructor
+public class PacienteService {
+	
+	@Autowired
+	PacienteRepository pacienteRepository;
+
+	public void save(PacienteModel paciente) {
+		pacienteRepository.save(paciente);
+	}
+	
+	public void asdas(PacienteModel paciente) {
+	}
+	
+	public void delete(PacienteModel paciente) {
+		pacienteRepository.delete(paciente);
+	}
+	
+	
+	
+	public void insert(PacienteModel paciente) {
+		pacienteRepository.save(paciente);
+	}
+
+	
+	
+}

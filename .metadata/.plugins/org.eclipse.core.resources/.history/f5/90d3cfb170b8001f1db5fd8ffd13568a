@@ -1,0 +1,19 @@
+package com.base.model;
+
+
+
+import javax.persistence.Table;
+
+import jakarta.persistence.Entity;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
+@Entity
+@Table(name = "tb_cidade")
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
+public class PacienteModel {
+
+}

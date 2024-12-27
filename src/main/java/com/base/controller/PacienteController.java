@@ -1,0 +1,46 @@
+package com.base.controller;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.RestController;
+
+import com.base.model.PacienteModel;
+import com.base.service.PacienteService;
+
+@RestController
+@RequestMapping("/rh")
+public class PacienteController {
+	
+	@Autowired
+	PacienteService pacienteService;
+	
+	@PostMapping
+	@ResponseBody
+	private void savePaciente(PacienteModel paciente) {
+		pacienteService.savePaciente(paciente);
+	}
+	
+    @PutMapping("/{ids}")
+    public ResponseEntity<PacienteModel> upDatePaciente(@PathVariable Long id, @RequestBody PacienteModel userDetails) {
+    	PacienteModel updatedUser = pacienteService.upDatePaciente(id, userDetails);
+        return ResponseEntity.ok(updatedUser);
+    }
+    
+    @PutMapping("/{idd}")
+    public void deleteId(@PathVariable Long id) {
+    	pacienteService.deleteId(id);
+    }
+    
+    @GetMapping("/{idss}")
+    public ResponseEntity<PacienteModel> getUserById(@PathVariable Long id) {
+    	PacienteModel user = pacienteService.getUserById(id);
+        return ResponseEntity.ok(user);
+    }
+}

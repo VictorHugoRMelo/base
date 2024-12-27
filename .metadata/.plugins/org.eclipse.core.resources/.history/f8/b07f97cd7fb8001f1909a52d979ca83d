@@ -1,0 +1,25 @@
+package com.base.model;
+
+
+
+import jakarta.persistence.Entity;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+
+@Entity
+@Table(name = "tb_cidade")
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
+@Getter
+@Setter
+public class PacienteModel {
+	
+	private Long id;
+	private String nome;
+	private Long telefone;
+
+}
