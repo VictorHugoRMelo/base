@@ -27,6 +27,7 @@ public class PacienteController {
 		pacienteService.savePaciente(paciente);
 	}
 	
+	
     @PutMapping("/{ids}")
     public ResponseEntity<PacienteModel> upDatePaciente(@PathVariable Long id, @RequestBody PacienteModel userDetails) {
     	PacienteModel updatedUser = pacienteService.upDatePaciente(id, userDetails);
