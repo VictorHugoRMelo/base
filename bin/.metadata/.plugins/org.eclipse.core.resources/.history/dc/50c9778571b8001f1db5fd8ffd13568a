@@ -1,0 +1,10 @@
+package com.base.repository;
+
+import org.springframework.stereotype.Repository;
+
+import com.base.model.PacienteModel;
+
+@Repository
+public class PacienteRepository extends JpaRepository<PacienteModel, Long> {
+
+}

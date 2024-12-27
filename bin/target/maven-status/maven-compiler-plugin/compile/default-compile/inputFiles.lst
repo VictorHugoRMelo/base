@@ -1,0 +1,6 @@
+/home/victor/base/Base/src/main/java/com/base/BaseApplication.java
+/home/victor/base/Base/src/main/java/com/base/controller/PacienteController.java
+/home/victor/base/Base/src/main/java/com/base/exception/ResourceNotFoundException.java
+/home/victor/base/Base/src/main/java/com/base/model/PacienteModel.java
+/home/victor/base/Base/src/main/java/com/base/repository/PacienteRepository.java
+/home/victor/base/Base/src/main/java/com/base/service/PacienteService.java

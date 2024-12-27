@@ -1,0 +1,13 @@
+package com.base;
+
+import org.junit.jupiter.api.Test;
+import org.springframework.boot.test.context.TestConfiguration;
+
+@TestConfiguration
+class BaseApplicationTests {
+
+	@Test
+	void contextLoads() {
+	}
+
+}

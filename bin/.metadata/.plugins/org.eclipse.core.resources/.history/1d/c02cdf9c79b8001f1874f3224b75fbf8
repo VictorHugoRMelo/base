@@ -1,0 +1,40 @@
+package com.base.controller;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+
+import com.base.model.PacienteModel;
+import com.base.service.PacienteService;
+
+public class PacienteController {
+	
+	@Autowired
+	PacienteService pacienteService;
+	
+	
+	@PutMapping("/{id}")
+	private void savePaciente(PacienteModel paciente) {
+		pacienteService.savePaciente(paciente);
+	}
+	
+    @PutMapping("/{id}")
+    public ResponseEntity<PacienteModel> upDatePaciente(@PathVariable Long id, @RequestBody PacienteModel userDetails) {
+    	PacienteModel updatedUser = pacienteService.upDatePaciente(id, userDetails);
+        return ResponseEntity.ok(updatedUser);
+    }
+    
+    @PutMapping("/{id}")
+    public void deleteId(@PathVariable Long id) {
+    	pacienteService.deleteId(id);
+    }
+    
+    @GetMapping("/{id}")
+    public ResponseEntity<PacienteModel> getUserById(@PathVariable Long id) {
+    	PacienteModel user = pacienteService.getUserById(id);
+        return ResponseEntity.ok(user);
+    }
+}

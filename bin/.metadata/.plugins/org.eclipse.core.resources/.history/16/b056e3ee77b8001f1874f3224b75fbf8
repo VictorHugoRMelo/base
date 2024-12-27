@@ -1,0 +1,44 @@
+package com.base.service;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.base.exception.ResourceNotFoundException;
+import com.base.model.PacienteModel;
+import com.base.repository.PacienteRepository;
+
+import lombok.RequiredArgsConstructor;
+
+@Service
+@RequiredArgsConstructor
+public class PacienteService {
+	
+	@Autowired
+	PacienteRepository pacienteRepository;
+
+	public void save(PacienteModel paciente) {
+		pacienteRepository.save(paciente);
+	}
+	
+	public PacienteModel upDatePaciente(Long id, PacienteModel paciente) {
+		PacienteModel existingUser = pacienteRepository.findById(id)
+	            .orElseThrow(() -> new ResourceNotFoundException("User not found with id: " + id));
+	
+	    existingUser.setNome(paciente.getNome());
+	    existingUser.setTelefone(paciente.getTelefone());
+	    return pacienteRepository.save(existingUser);
+	}
+	
+	public void delete(PacienteModel paciente) {
+		pacienteRepository.delete(paciente);
+	}
+	
+	
+	
+	public void insert(PacienteModel paciente) {
+		pacienteRepository.save(paciente);
+	}
+
+	
+	
+}
