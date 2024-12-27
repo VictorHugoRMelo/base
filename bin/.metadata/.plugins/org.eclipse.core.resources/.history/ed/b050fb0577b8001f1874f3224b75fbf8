@@ -1,0 +1,30 @@
+package com.base.controller;
+
+import org.apache.catalina.realm.JNDIRealm.User;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+
+import com.base.model.PacienteModel;
+import com.base.service.PacienteService;
+
+public class PacienteController {
+	
+	@Autowired
+	PacienteService pacienteService;
+	
+	
+	private void save(PacienteModel paciente) {
+		pacienteService.save(paciente);
+		
+	}
+	
+    @PutMapping("/{id}")
+    public ResponseEntity<PacienteModel> updateUser(@PathVariable Long id, @RequestBody PacienteModel userDetails) {
+    	PacienteModel updatedUser = pacienteService.updateUser(id, userDetails);
+        return ResponseEntity.ok(updatedUser);
+    }
+
+}
