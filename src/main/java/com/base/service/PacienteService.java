@@ -1,5 +1,6 @@
 package com.base.service;
 
+import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,15 +19,17 @@ public class PacienteService {
 	@Autowired
 	PacienteRepository pacienteRepository;
 	
-	
-
-	public void savePaciente(PacienteModel paciente) {
-		pacienteRepository.save(paciente);
+	public PacienteModel savePaciente(PacienteModel paciente) {
+		PacienteModel novoPaciente = new PacienteModel();
+		novoPaciente.setNome(paciente.getNome());
+		novoPaciente.setTelefone(paciente.getTelefone());
+		PacienteModel salvouProduto = pacienteRepository.save(novoPaciente);
+		return salvouProduto;
 	}
 	
 	public PacienteModel upDatePaciente(Long id, PacienteModel paciente) {
 		PacienteModel existingUser = pacienteRepository.findById(id)
-	            .orElseThrow(() -> new ResourceNotFoundException("User not found with id: " + id));
+	            .orElseThrow(() -> new ResourceNotFoundException("Paciente com id : " + id + "não foi encontrado"));
 	
 	    existingUser.setNome(paciente.getNome());
 	    existingUser.setTelefone(paciente.getTelefone());
@@ -41,6 +44,12 @@ public class PacienteService {
 	}
 	
 	 public PacienteModel getUserById(Long id) {
-        return pacienteRepository.findById(id).orElseThrow(() -> new ResourceNotFoundException("User not found with id: " + id));
+        return pacienteRepository.findById(id).orElseThrow(() -> 
+        new ResourceNotFoundException("Paciente com id : " + id + " não foi encontrado"));
 	}
+	 
+	 public List<PacienteModel> buscarTodos() {
+		    List<PacienteModel> paciente = pacienteRepository.findAll();
+		    return paciente;
+	 }	    		
 }

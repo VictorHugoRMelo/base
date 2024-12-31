@@ -1,5 +1,0 @@
-package com.base.exception;
-
-public class ResourceNotFoundException {
-
-}
