@@ -112,7 +112,15 @@
 					</excludes>
 				</configuration>
 			</plugin>
-		</plugins>
+	        <plugin>
+	            <groupId>org.apache.maven.plugins</groupId>
+	            <artifactId>maven-resources-plugin</artifactId>
+	            <version>3.3.0</version>
+	            <configuration>
+	                <addDefaultImplementationEntries>false</addDefaultImplementationEntries>
+	                <addBuildEnvironmentEntries>false</addBuildEnvironmentEntries>
+	            </configuration>
+	        </plugin>
+    	</plugins>
 	</build>
-
 </project>
