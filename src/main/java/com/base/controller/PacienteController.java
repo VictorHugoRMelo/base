@@ -3,6 +3,7 @@ package com.base.controller;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.ApplicationEventPublisher;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -15,6 +16,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.base.event.IdentificadorEmail;
 import com.base.model.PacienteModel;
 import com.base.service.PacienteService;
 
@@ -25,16 +27,20 @@ public class PacienteController {
 	@Autowired
 	PacienteService pacienteService;
 	
+	@Autowired
+	private ApplicationEventPublisher evento;
+	
 	@PostMapping
 	@ResponseStatus(HttpStatus.CREATED)
 	private PacienteModel savePaciente(@RequestBody PacienteModel paciente) {
-		  return pacienteService.savePaciente(paciente);
+		evento.publishEvent(new IdentificadorEmail(paciente.getNome(), null));
+	return pacienteService.savePaciente(paciente);
 	}
 	
     @PutMapping("/{id}")
     public ResponseEntity<PacienteModel> upDatePaciente(@PathVariable Long id, @RequestBody PacienteModel userDetails) {
     	PacienteModel updatedUser = pacienteService.upDatePaciente(id, userDetails);
-        return ResponseEntity.ok(updatedUser);
+    	return ResponseEntity.ok(updatedUser);
     }
     
     @DeleteMapping("/{id}")

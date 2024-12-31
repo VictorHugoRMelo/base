@@ -19,8 +19,6 @@ public class PacienteService {
 	@Autowired
 	PacienteRepository pacienteRepository;
 	
-	
-
 	public PacienteModel savePaciente(PacienteModel paciente) {
 		PacienteModel novoPaciente = new PacienteModel();
 		novoPaciente.setNome(paciente.getNome());
@@ -31,7 +29,7 @@ public class PacienteService {
 	
 	public PacienteModel upDatePaciente(Long id, PacienteModel paciente) {
 		PacienteModel existingUser = pacienteRepository.findById(id)
-	            .orElseThrow(() -> new ResourceNotFoundException("User not found with id: " + id));
+	            .orElseThrow(() -> new ResourceNotFoundException("Paciente com id : " + id + "não foi encontrado"));
 	
 	    existingUser.setNome(paciente.getNome());
 	    existingUser.setTelefone(paciente.getTelefone());
@@ -47,7 +45,7 @@ public class PacienteService {
 	
 	 public PacienteModel getUserById(Long id) {
         return pacienteRepository.findById(id).orElseThrow(() -> 
-        new ResourceNotFoundException("Paciente com id : " + id + " Não foi encontrado"));
+        new ResourceNotFoundException("Paciente com id : " + id + " não foi encontrado"));
 	}
 	 
 	 public List<PacienteModel> buscarTodos() {
