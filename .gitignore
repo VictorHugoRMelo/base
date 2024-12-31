@@ -1,3 +1,19 @@
+# Ignorar arquivos compilados
 *.class
+
+# Ignorar diretório de saída do Eclipse
 /bin/
-target/
+
+# Ignorar configurações do Eclipse
+.project
+.classpath
+.settings/
+
+# Ignorar arquivos gerados pelo Maven ou Gradle
+/target/
+/build/
+
+# Ignorar outros arquivos temporários
+*.log
+*.tmp
+*.bak
