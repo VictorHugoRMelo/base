@@ -11,6 +11,7 @@
 
 # Ignorar arquivos gerados pelo Maven ou Gradle
 /target/
+/*.properties
 /build/
 
 # Ignorar outros arquivos temporários
