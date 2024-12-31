@@ -1,6 +1,0 @@
-com/base/controller/PacienteController.class
-com/base/repository/PacienteRepository.class
-com/base/BaseApplication.class
-com/base/model/PacienteModel.class
-com/base/exception/ResourceNotFoundException.class
-com/base/service/PacienteService.class

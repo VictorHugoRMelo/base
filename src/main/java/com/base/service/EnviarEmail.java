@@ -13,6 +13,7 @@ import org.slf4j.Logger;
 public class EnviarEmail {
     private static final Logger logger = LoggerFactory.getLogger(EnviarEmail.class);
 
+    
 	@EventListener
 	public void usuarioEvent(IdentificadorEmail paciente) {
 		logger.info("EMAIL ENVIADO para : " + paciente.getIdentificador() );
