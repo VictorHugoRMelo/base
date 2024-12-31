@@ -10,7 +10,7 @@
 .settings/
 
 # Ignorar arquivos gerados pelo Maven ou Gradle
-target/
+-target/
 /build/
 
 # Ignorar outros arquivos temporários
